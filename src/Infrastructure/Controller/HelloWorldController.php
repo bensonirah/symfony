@@ -3,7 +3,7 @@
 namespace Arch\Infrastructure\Controller;
 
 use Arch\Application\Command\HelloWorld;
-use Arch\Application\Middlewares\CommandBus;
+use Arch\Application\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,6 +31,7 @@ class HelloWorldController extends AbstractController
         $commandDto = new HelloWorld('Hello world');
         $response = $this->commandBus->dispatch($commandDto);
         $data = $response->render();
+        dd($data);
         return $this->json(array_merge($response->render(), [
             'path' => 'src/Infrastructure/Controller/HelloWorldController.php',
             'event_message' => 'Check your log to see the event message dispatched',

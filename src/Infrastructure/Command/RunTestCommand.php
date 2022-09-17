@@ -2,15 +2,15 @@
 
 namespace Arch\Infrastructure\Command;
 
-use Arch\Application\Command\HelloWorld;
-use Arch\Application\Middlewares\CommandBus;
-use Psr\Log\LoggerInterface;
+use Arch\Application\CommandBus;
+use Arch\Application\MiddlewaresResolver;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class RunTestCommand extends Command
 {
@@ -22,7 +22,20 @@ class RunTestCommand extends Command
      * @var CommandBus
      */
     private $commandBus;
+    /**
+     * @var ContainerInterface
+     */
+    private ContainerInterface $container;
+    /**
+     * @var MiddlewaresResolver
+     */
+    private MiddlewaresResolver $middlewaresResolver;
 
+    /**
+     * RunTestCommand constructor.
+     * @param CommandBus $commandBus
+     * @param string|null $name
+     */
     public function __construct(CommandBus $commandBus, string $name = null)
     {
         parent::__construct(self::$defaultName);
@@ -39,8 +52,7 @@ class RunTestCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        $command = new HelloWorld('Hello world');
-        $response = $this->commandBus->dispatch($command);
+        dump('hi there!');
         return Command::SUCCESS;
     }
 }

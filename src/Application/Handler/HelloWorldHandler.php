@@ -1,6 +1,6 @@
 <?php
 
-namespace Arch\Application\CommandHandler;
+namespace Arch\Application\Handler;
 
 use Arch\Application\Command\HelloWorld;
 use Arch\Application\Events\Helloworld\MessageSent;
@@ -8,7 +8,11 @@ use Arch\Application\Response\ResponseInterface;
 use Arch\Application\Response\ViewModel;
 use Symfony\Component\HttpFoundation\Response;
 
-class HelloWorldHandler
+/**
+ * Class HelloWorldHandler The command handler for HelloWorld command
+ * @package Arch\Application\Handler
+ */
+final class HelloWorldHandler
 {
 
     public function __invoke(HelloWorld $helloWorld): ResponseInterface

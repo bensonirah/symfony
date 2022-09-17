@@ -2,14 +2,14 @@
 
 namespace Arch\Application\Command;
 
-final class HelloWorld implements CommandInterface
+final class HelloWorld
 {
     /**
      * The message content
      *
      * @var string
      */
-    private $message;
+    private string $message;
 
     public function __construct(string $message)
     {
@@ -19,10 +19,5 @@ final class HelloWorld implements CommandInterface
     public function message(): string
     {
         return $this->message;
-    }
-
-    public function connectedUser(): int
-    {
-        return 0;
     }
 }

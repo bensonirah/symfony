@@ -26,8 +26,8 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
     
-    Arch\Application\CommandHandler\:
-        resource:   '../src/Application/CommandHandler/*'
+    Arch\Application\Handler\:
+        resource:   '../src/Application/Handler/*'
         tags: ['arch.command.handler']
     
     Arch\Application\Events\Handler\:
@@ -39,21 +39,24 @@ services:
         arguments:
             - !tagged_iterator 'arch.event.handler'
 
-    arch.command_bus.middleware:
-        class: Arch\Application\Middlewares\CommandBusMiddleware
-        arguments:
-            - !tagged_iterator arch.command.handler
-            - '@logger'
-    
-    Arch\Application\Middlewares\CommandDispatcher:
-        arguments:
-            - !tagged_iterator arch.command.middleware
-            - '@logger'
-            - '@arch.event.bus'
-            - '@arch.command_bus.middleware'
 
-    
-    Arch\Application\Middlewares\CommandBusMiddleware:
+    Arch\Application\Middlewares\CommandHandlerMiddleware:
         arguments:
             - !tagged_iterator arch.command.handler
+            - '@logger'
+
+    Arch\Application\Events\EventBus:
+        arguments:
+            - !tagged_iterator arch.event.handler
+
+    arch.app.middleware_resolver:
+        class: Arch\Application\MiddlewaresResolver
+        arguments:
+            - '@service_container'
+            - !tagged_iterator arch.command.middleware
+
+
+    Arch\Application\CommandBus:
+        arguments:
+            - '@arch.app.middleware_resolver'
             - '@logger'
