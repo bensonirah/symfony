@@ -2,15 +2,10 @@
 
 namespace Arch\Domain\Entity;
 
-use Arc\Domain\Entity\BaseEntity;
 use Arch\Application\Command\HelloWorld;
 
 final class Message extends BaseEntity
 {
-    /**
-     * @var int
-     */
-    private $id;
     /**
      * @var string
      */

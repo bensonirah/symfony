@@ -1,6 +1,6 @@
 <?php
 
-namespace Arc\Domain\Entity;
+namespace Arch\Domain\Entity;
 
 abstract class BaseEntity
 {

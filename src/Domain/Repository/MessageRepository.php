@@ -3,6 +3,7 @@
 namespace Arch\Domain\Repository;
 
 use Arch\Domain\Entity\Message;
+use Arch\Domain\Exception\MessageNotFoundException;
 
 interface MessageRepository
 {
