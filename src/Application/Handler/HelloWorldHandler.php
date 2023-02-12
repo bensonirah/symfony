@@ -20,8 +20,9 @@ final class HelloWorldHandler
 
     public function __construct(MessageRepository $messageRepository)
     {
-        $this->messageRepository;
+        $this->messageRepository = $messageRepository;
     }
+
     public function __invoke(HelloWorld $helloWorld): ResponseInterface
     {
         $this->messageRepository->add(Message::fromInput($helloWorld));
