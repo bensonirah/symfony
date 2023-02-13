@@ -21,7 +21,6 @@ class HttpLoggerMiddleware implements HttpRequestMiddleware
     {
         // TODO: Implement __invoke() method.
         $this->logger->debug($request->getRequestUri());
-        dump(sprintf("%s Log the http request...", __CLASS__));
         return $next($request);
     }
 }

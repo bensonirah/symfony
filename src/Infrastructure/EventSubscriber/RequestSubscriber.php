@@ -31,17 +31,20 @@ class RequestSubscriber implements EventSubscriberInterface
 
     public function onKernelRequest(RequestEvent $event)
     {
-        /**@var IResponse $response */
-        $response = ($this->nextMiddleware)($event->getRequest());
-        $this->logger->debug(
-            sprintf(
-                "[%s] source: %s line: %s",
-                (new \DateTime())->format('Y-m-d H:i:s'), __CLASS__, __LINE__
-            )
-        );
-        if ($response->hasResponse()) {
+        // Run only this middleware when route exist
+        if ($event->getRequest()->attributes->has('_route')) {
+            /**@var IResponse $response */
+            $response = ($this->nextMiddleware)($event->getRequest());
+            $this->logger->debug(
+                sprintf(
+                    "[%s] source: %s line: %s",
+                    (new \DateTime())->format('Y-m-d H:i:s'), __CLASS__, __LINE__
+                )
+            );
+            if ($response->hasResponse()) {
 //          Return a response back to the client
-            $event->setResponse($response->get());
+                $event->setResponse($response->get());
+            }
         }
     }
 

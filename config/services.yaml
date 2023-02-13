@@ -16,6 +16,8 @@ services:
             tags: ['arch.command.middleware']
         Arch\Infrastructure\Middlewares\HttpRequestMiddleware:
             tags: ['arch.http_request.middleware']
+        Arch\Infrastructure\Middlewares\ExceptionMiddleware:
+            tags: ['arch.exception_middleware']
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     Arch\:
@@ -63,6 +65,12 @@ services:
             - '@service_container'
             - !tagged_iterator arch.http_request.middleware
 
+    arch.exception.middleware_resolver:
+        class: Arch\Infrastructure\Middlewares\ExceptionMiddlewareResolver
+        arguments:
+            - '@service_container'
+            - !tagged_iterator arch.exception_middleware
+
     Arch\Application\CommandBus:
         arguments:
             - '@arch.app.middleware_resolver'
@@ -72,4 +80,10 @@ services:
     Arch\Infrastructure\EventSubscriber\RequestSubscriber:
         arguments:
             - '@arch.http.middleware_resolver'
-            - ''
+            - '@logger'
+
+
+    Arch\Infrastructure\EventSubscriber\ExceptionSubscriber:
+        arguments:
+            - '@arch.exception.middleware_resolver'
+            - '@logger'

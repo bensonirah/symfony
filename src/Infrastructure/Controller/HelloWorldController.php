@@ -13,7 +13,7 @@ class HelloWorldController extends AbstractController
     /**
      * @var CommandBus
      */
-    private $commandBus;
+    private CommandBus $commandBus;
 
     /**
      * @param CommandBus $commandBus
@@ -31,7 +31,6 @@ class HelloWorldController extends AbstractController
         $commandDto = new HelloWorld('Hello world');
         $response = $this->commandBus->dispatch($commandDto);
         $data = $response->render();
-        dd($data);
         return $this->json(array_merge($response->render(), [
             'path' => 'src/Infrastructure/Controller/HelloWorldController.php',
             'event_message' => 'Check your log to see the event message dispatched',
