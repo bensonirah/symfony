@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Storage bucket | Symfony less
+{% endblock %}
+{% block body %}
+    <h1>Storage bucket</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores, autem corporis cumque dolore ea error
+        hic id labore laborum modi recusandae reprehenderit sequi similique, tempora, totam veniam voluptate
+        voluptatum.</p>
+    <form action="{{ path('upload_media') }}" method="post" enctype="multipart/form-data">
+        <label for="bucket">
+            Choose bucket:
+            <input type="file" name="media_bucket">
+        </label>
+        <br>
+        <button type="submit">Upload</button>
+    </form>
+{% endblock %}

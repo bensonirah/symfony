@@ -4,5 +4,5 @@ namespace Arch\Application\Constant;
 
 final class Media
 {
-    const URL = 'media_url';
+    const BUCKET_KEY = 'media_url';
 }

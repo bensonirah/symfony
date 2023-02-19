@@ -1,0 +1,4 @@
+parameters:
+  bucket_key: '%env(BUCKET_KEY)%'
+  bucket_dest: '%env(BUCKET_DEST)%'
+  bucket_url_key: '%env(BUCKET_URL_KEY)%'

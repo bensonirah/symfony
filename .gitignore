@@ -13,3 +13,7 @@
 .idea/
 .php-version
 ###<
+
+###> arch
+public/media/
+###<
