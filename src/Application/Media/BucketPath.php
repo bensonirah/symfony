@@ -23,6 +23,18 @@ class BucketPath implements FilePathInterface
         $this->dest = $dest;
     }
 
+    /**
+     * @param string $dest
+     * @param string $filename
+     * @return BucketPath
+     */
+    public static function withFileName(string $dest, string $filename): BucketPath
+    {
+        $path = new static($dest);
+        $path->dest = implode('/', [$path->dest, $filename]);
+        return $path;
+    }
+
     public function __toString(): string
     {
         return $this->dest;
