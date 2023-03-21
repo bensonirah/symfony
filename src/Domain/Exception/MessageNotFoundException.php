@@ -4,7 +4,7 @@ namespace Arch\Domain\Exception;
 
 use Exception;
 
-final class MessageNotFoundException extends Exception
+final class MessageNotFoundException extends DomainEntityException
 {
     public static function fromId(int $id): self
     {

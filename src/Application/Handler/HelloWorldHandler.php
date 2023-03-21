@@ -7,7 +7,7 @@ use Arch\Application\Events\Helloworld\MessageSent;
 use Arch\Application\Response\ResponseInterface;
 use Arch\Application\Response\ViewModel;
 use Arch\Domain\Entity\Message;
-use Arch\Domain\Repository\MessageRepository;
+use Arch\Domain\Repository\MessageRepositoryInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -16,9 +16,9 @@ use Symfony\Component\HttpFoundation\Response;
  */
 final class HelloWorldHandler
 {
-    private MessageRepository $messageRepository;
+    private MessageRepositoryInterface $messageRepository;
 
-    public function __construct(MessageRepository $messageRepository)
+    public function __construct(MessageRepositoryInterface $messageRepository)
     {
         $this->messageRepository = $messageRepository;
     }
@@ -26,6 +26,7 @@ final class HelloWorldHandler
     public function __invoke(HelloWorld $helloWorld): ResponseInterface
     {
         $this->messageRepository->add(Message::fromInput($helloWorld));
+        dd($this->messageRepository);
         return ViewModel::withEvent([
             'data' => $helloWorld->message(),
             'message' => 'The message to send to the client',

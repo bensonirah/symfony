@@ -9,7 +9,7 @@ final class Message extends BaseEntity
     /**
      * @var string
      */
-    private $body;
+    private string $body;
 
     public function __construct(string $body)
     {

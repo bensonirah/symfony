@@ -4,7 +4,7 @@ namespace Arch\Domain\Entity;
 
 abstract class BaseEntity
 {
-    protected $id;
+    protected int $id;
 
     public abstract function toArray(): array;
     public abstract function __toString();

@@ -2,14 +2,18 @@
 
 namespace Arch\Infrastructure\Repository;
 
+use Arch\Domain\Entity\BaseEntity;
 use Arch\Domain\Entity\Message;
 use Arch\Domain\Exception\MessageNotFoundException;
-use Arch\Domain\Repository\MessageRepository;
+use Arch\Domain\Repository\MessageRepositoryInterface;
 
-final class InMemoryMessageRepository implements MessageRepository
+final class InMemoryMessageRepository implements MessageRepositoryInterface
 {
-    private $messages = [];
+    private array $messages = [];
 
+    /**
+     * @throws MessageNotFoundException
+     */
     public function get(int $id): Message
     {
         if (!empty($this->messages)) {
@@ -22,13 +26,13 @@ final class InMemoryMessageRepository implements MessageRepository
         throw new MessageNotFoundException('No message found!');
     }
 
-    public function add(Message $message)
+    public function add(BaseEntity $baseEntity)
     {
-
+        $this->messages[] = $baseEntity;
     }
 
     public function remove(int $id)
     {
-        // TODO: Implement remove() method.
+        $this->messages[] = array_filter($this->messages, fn(Message $message) => $message->getId() != $id);
     }
 }
