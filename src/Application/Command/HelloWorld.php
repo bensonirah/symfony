@@ -6,8 +6,6 @@ final class HelloWorld
 {
     /**
      * The message content
-     *
-     * @var string
      */
     private string $message;
 

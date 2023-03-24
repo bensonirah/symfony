@@ -9,16 +9,13 @@ final class ViewModel implements ResponseInterface
 
     /**
      * The domain event
-     *
-     * @var DomainEvent
      */
-    private $event;
+    private ?DomainEvent $event;
     /**
      * The view to render to the client
      *
-     * @var array
      */
-    private $view;
+    private array $view;
 
     private function __construct(array $data, ?DomainEvent $event)
     {
@@ -30,7 +27,7 @@ final class ViewModel implements ResponseInterface
         return new self($data, null);
     }
 
-    public static function withEvent(array $data, DomainEvent $domainEvent)
+    public static function withEvent(array $data, DomainEvent $domainEvent): ViewModel
     {
         return new self($data, $domainEvent);
     }

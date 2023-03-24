@@ -6,9 +6,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class ResponseDto implements IResponse
 {
-    /**
-     * @var bool
-     */
     private bool $hasResponse;
 
     /**

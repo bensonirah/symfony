@@ -15,21 +15,9 @@ final class CommandBus
 
     /**
      * The command dispatcher
-     *
-     * @var \Closure
      */
     private \Closure $middlewareChain;
-    /**
-     * The logger to log message in log file
-     *
-     * @var LoggerInterface
-     */
-    private $logger;
-    /**
-     * The event bus to dispatch a given event to
-     *
-     * @var EventBusInterface
-     */
+    private LoggerInterface $logger;
     private EventBusInterface $eventBusInterface;
 
     /**

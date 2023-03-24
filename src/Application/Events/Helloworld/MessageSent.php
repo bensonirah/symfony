@@ -8,17 +8,14 @@ final class MessageSent implements DomainEvent
 {
     /**
      *  The user id to send email to
-     *
-     * @var int
      */
-    private $userToNotify;
+    private int $userToNotify;
 
     /**
      * The message to send through email
      *
-     * @var string
      */
-    private $message;
+    private string $message;
 
     public function __construct(int $userToNotify, string $helloworldMessage)
     {

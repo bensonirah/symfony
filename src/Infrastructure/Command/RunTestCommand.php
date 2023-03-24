@@ -16,30 +16,14 @@ class RunTestCommand extends Command
 {
     protected static $defaultName = 'app:run-test';
     protected static $defaultDescription = 'Run test command';
-    /**
-     * The command bus to dispatch the command to
-     *
-     * @var CommandBus
-     */
-    private $commandBus;
-    /**
-     * @var ContainerInterface
-     */
-    private ContainerInterface $container;
-    /**
-     * @var MiddlewaresResolver
-     */
-    private MiddlewaresResolver $middlewaresResolver;
 
     /**
      * RunTestCommand constructor.
-     * @param CommandBus $commandBus
      * @param string|null $name
      */
-    public function __construct(CommandBus $commandBus, string $name = null)
+    public function __construct(string $name = null)
     {
         parent::__construct(self::$defaultName);
-        $this->commandBus = $commandBus;
     }
 
     protected function configure(): void

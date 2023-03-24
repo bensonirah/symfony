@@ -6,9 +6,6 @@ use Arch\Application\Command\HelloWorld;
 
 final class Message extends BaseEntity
 {
-    /**
-     * @var string
-     */
     private string $body;
 
     public function __construct(string $body)
