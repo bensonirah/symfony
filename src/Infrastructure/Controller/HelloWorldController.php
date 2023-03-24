@@ -10,9 +10,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HelloWorldController extends AbstractController
 {
-    /**
-     * @var CommandBus
-     */
     private CommandBus $commandBus;
 
     /**

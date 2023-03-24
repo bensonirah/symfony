@@ -224,6 +224,9 @@
     "symfony/yaml": {
         "version": "v5.4.3"
     },
+    "symfonycasts/verify-email-bundle": {
+        "version": "v1.13.0"
+    },
     "twig/extra-bundle": {
         "version": "v3.5.1"
     },

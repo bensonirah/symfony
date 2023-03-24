@@ -7,10 +7,8 @@ final class EventBus implements EventBusInterface
 {
     /**
      * The event handlers
-     *
-     * @var array
      */
-    private $eventHandlers;
+    private array $eventHandlers;
 
     public function __construct(iterable $eventHandlers)
     {

@@ -7,10 +7,7 @@ use Psr\Log\LoggerInterface;
 
 final class SendEmailOnMessageSent
 {
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
+    private LoggerInterface $logger;
 
     /**
      * @param LoggerInterface $logger

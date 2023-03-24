@@ -14,16 +14,12 @@ final class CommandHandlerMiddleware implements MiddlewareInterface
 
     /**
      * List of command handler
-     *
-     * @var array
      */
-    private $commandHandlers;
+    private array $commandHandlers;
     /**
      * The logger to log message in log file
-     *
-     * @var LoggerInterface
      */
-    private $logger;
+    private LoggerInterface $logger;
 
 
     /**
