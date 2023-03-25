@@ -1,10 +1,8 @@
 doctrine_migrations:
   migrations_paths:
-    'Infrastructure\Migrations': '%kernel.project_dir%/src/Infrastructure'
+    'Arch\Infrastructure\Migrations': '%kernel.project_dir%/src/Infrastructure/Migrations'
 
-  connection: default
-
-#  em: default
+  em: default
 
   storage:
     table_storage:
