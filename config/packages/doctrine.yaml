@@ -1,6 +1,5 @@
 doctrine:
   dbal:
-    override_url: true
     url: '%env(DATABASE_URL)%'
   orm:
     auto_generate_proxy_classes: true
@@ -11,5 +10,5 @@ doctrine:
         is_bundle: false
         type: annotation
         dir: '%kernel.project_dir%/src/Infrastructure/Entity'
-        prefix: 'Infrastructure\Entity'
+        prefix: 'Arch\Infrastructure\Entity'
         alias: Arch
