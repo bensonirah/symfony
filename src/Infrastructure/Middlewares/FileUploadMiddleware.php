@@ -35,6 +35,9 @@ final class FileUploadMiddleware implements HttpRequestMiddleware
         if (!$request->isMethod('POST')) {
             return ResponseDto::withoutResponse();
         }
+        if (!$request->files->has($this->bucketKey)) {
+            return ResponseDto::withoutResponse();
+        }
         /**@var UploadedFile $file */
         $file = $request->files->get($this->bucketKey);
         $bucketUrl = $this->fileUpload->upload($file, new BucketPath($this->bucketDest));

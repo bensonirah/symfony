@@ -26,7 +26,6 @@ final class HelloWorldHandler
     public function __invoke(HelloWorld $helloWorld): ResponseInterface
     {
         $this->messageRepository->add(Message::fromInput($helloWorld));
-        dd($this->messageRepository);
         return ViewModel::withEvent([
             'data' => $helloWorld->message(),
             'message' => 'The message to send to the client',
