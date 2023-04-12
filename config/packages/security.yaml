@@ -21,12 +21,14 @@ security:
         login:
             pattern: ^/api/login
             stateless: true
+            provider:   arch_user_provider
             json_login:
                 check_path: /api/login_check # or api_login_check as defined in config/routes.yaml
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
         api:
             pattern: ^/api
+            provider:   arch_user_provider
             stateless: true
             jwt: ~
 
@@ -44,6 +46,7 @@ security:
     access_control:
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/login$,       roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
 when@test:
     security:
