@@ -11,7 +11,7 @@ framework:
             # async: '%env(MESSENGER_TRANSPORT_DSN)%'
             # failed: 'doctrine://default?queue_name=failed'
             # sync: 'sync://'
-
+             redis: '%env(MESSENGER_TRANSPORT_DSN)%'
         routing:
             # Route your messages to the transports
             # 'App\Message\YourMessage': async
