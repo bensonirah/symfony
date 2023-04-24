@@ -32,6 +32,9 @@ class RegistrationController extends AbstractController
      */
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
+        if ($this->getUser()){
+            return $this->redirectToRoute('arch_home');
+        }
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
@@ -56,13 +59,6 @@ class RegistrationController extends AbstractController
                     ->subject('Please Confirm your Email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
-            // do anything else you need here, like send an email
-
-            /* return $userAuthenticator->authenticateUser(
-                 $user,
-                 $authenticator,
-                 $request
-             );*/
             $this->addFlash('success', 'An email has been sent to you to confirm your registration!');
             return $this->redirectToRoute('arch_register');
         }
@@ -104,7 +100,5 @@ class RegistrationController extends AbstractController
             $authenticator,
             $request
         );
-
-        //return $this->redirectToRoute('arch_home');
     }
 }
