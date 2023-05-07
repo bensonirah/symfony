@@ -37,8 +37,8 @@ class RequestSubscriber implements EventSubscriberInterface
             $response = ($this->nextMiddleware)($event->getRequest());
             $this->logger->debug(
                 sprintf(
-                    "[%s] source: %s line: %s",
-                    (new \DateTime())->format('Y-m-d H:i:s'), __CLASS__, __LINE__
+                    "source: %s line: %s",
+                     __CLASS__, __LINE__
                 )
             );
             if ($response->hasResponse()) {

@@ -11,6 +11,7 @@
         "doctrine/doctrine-bundle": "^2.8",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.11",
+        "league/commonmark": "^2.4",
         "lexik/jwt-authentication-bundle": "^2.18",
         "symfony/console": "5.4.*",
         "symfony/dotenv": "5.4.*",
@@ -49,6 +50,7 @@
         "sort-packages": true
     },
     "autoload": {
+        "files": ["Resources/functions/controller.php"],
         "psr-4": {
             "Arch\\": "src/"
         }
