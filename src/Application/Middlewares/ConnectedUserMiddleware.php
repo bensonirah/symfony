@@ -2,7 +2,7 @@
 
 namespace Arch\Application\Middlewares;
 
-use Arch\Application\Response\ResponseInterface;
+use Arch\Application\Shared\Response\ResponseInterface;
 
 
 final class ConnectedUserMiddleware implements MiddlewareInterface

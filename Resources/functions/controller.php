@@ -1,7 +1,7 @@
 <?php
 
 
-use Arch\Utils\ControllerClass;
+use Arch\Infrastructure\Utils\ControllerClass;
 
 if (!function_exists('controller')) {
     function controller(object $instance): string

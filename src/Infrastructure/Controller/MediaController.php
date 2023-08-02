@@ -2,7 +2,7 @@
 
 namespace Arch\Infrastructure\Controller;
 
-use Arch\Application\Media\BucketPath;
+use Arch\Application\Shared\Media\BucketPath;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;

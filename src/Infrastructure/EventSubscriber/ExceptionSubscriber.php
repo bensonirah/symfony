@@ -2,7 +2,7 @@
 
 namespace Arch\Infrastructure\EventSubscriber;
 
-use Arch\Infrastructure\Middlewares\ExceptionMiddlewareResolver;
+use Arch\Infrastructure\Middlewares\Exception\ExceptionMiddlewareResolver;
 use Closure;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;

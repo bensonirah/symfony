@@ -2,8 +2,8 @@
 
 namespace Arch\Infrastructure\EventSubscriber;
 
-use Arch\Infrastructure\Middlewares\HttpMiddlewareResolver;
-use Arch\Infrastructure\Middlewares\IResponse;
+use Arch\Infrastructure\Middlewares\Http\HttpMiddlewareResolver;
+use Arch\Infrastructure\Middlewares\Http\IResponse;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;

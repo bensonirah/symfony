@@ -3,8 +3,8 @@
 namespace Arch\Application\Middlewares;
 
 
-use Arch\Application\Response\ResponseInterface;
-use Arch\Application\Response\ViewModel;
+use Arch\Application\Shared\Response\ResponseInterface;
+use Arch\Application\Shared\Response\ViewModel;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Response;
 

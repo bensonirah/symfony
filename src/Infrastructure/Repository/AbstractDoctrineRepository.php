@@ -2,7 +2,7 @@
 
 namespace Arch\Infrastructure\Repository;
 
-use Arch\Infrastructure\Traits\BaseRepositoryTrait;
+use Arch\Infrastructure\Repository\Traits\BaseRepositoryTrait;
 use Doctrine\ORM\EntityManagerInterface;
 
 abstract class AbstractDoctrineRepository

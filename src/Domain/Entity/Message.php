@@ -2,7 +2,7 @@
 
 namespace Arch\Domain\Entity;
 
-use Arch\Application\Command\HelloWorld;
+use Arch\Application\Command\Message\SendMessage;
 
 final class Message extends BaseEntity
 {
@@ -34,7 +34,7 @@ final class Message extends BaseEntity
         return "uuid: {$this->id}, body: {$this->body}";
     }
 
-    public static function fromInput(HelloWorld $helloWorld): Message
+    public static function fromInput(SendMessage $helloWorld): Message
     {
         return new self($helloWorld->message());
     }

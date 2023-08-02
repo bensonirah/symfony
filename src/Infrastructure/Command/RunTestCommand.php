@@ -2,18 +2,12 @@
 
 namespace Arch\Infrastructure\Command;
 
-use Arch\Application\CommandBus;
-use Arch\Application\MiddlewaresResolver;
-use Arch\Domain\Exception\DomainEntityException;
-use Arch\Domain\Exception\EntityNotFoundException;
-use Arch\Domain\Repository\UserRepositoryInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class RunTestCommand extends Command
 {

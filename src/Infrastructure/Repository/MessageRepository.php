@@ -3,7 +3,7 @@
 namespace Arch\Infrastructure\Repository;
 
 use Arch\Domain\Repository\MessageRepositoryInterface;
-use Arch\Infrastructure\Traits\BaseRepositoryTrait;
+use Arch\Infrastructure\Repository\Traits\BaseRepositoryTrait;
 use Doctrine\ORM\EntityManagerInterface;
 
 final class MessageRepository  implements MessageRepositoryInterface

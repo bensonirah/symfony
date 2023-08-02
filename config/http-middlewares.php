@@ -3,7 +3,7 @@
  * The middleware stacks definition
  */
 return [
-    Arch\Infrastructure\Middlewares\HttpLoggerMiddleware::class,
-    Arch\Infrastructure\Middlewares\HttpLocalMiddleware::class,
-    Arch\Infrastructure\Middlewares\FileUploadMiddleware::class,
+    \Arch\Infrastructure\Middlewares\Http\HttpLoggerMiddleware::class,
+    \Arch\Infrastructure\Middlewares\Http\HttpLocalMiddleware::class,
+    \Arch\Infrastructure\Middlewares\Http\FileUploadMiddleware::class,
 ];
