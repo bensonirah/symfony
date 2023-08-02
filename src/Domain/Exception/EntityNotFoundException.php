@@ -2,7 +2,7 @@
 
 namespace Arch\Domain\Exception;
 
-abstract class EntityNotFoundException extends DomainEntityException
+final class EntityNotFoundException extends DomainEntityException
 {
-
+    use DomainEntityExceptionTrait;
 }

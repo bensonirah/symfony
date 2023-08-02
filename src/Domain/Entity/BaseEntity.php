@@ -6,8 +6,9 @@ abstract class BaseEntity
 {
     protected int $id;
 
-    public abstract function toArray(): array;
-    public abstract function __toString();
+    public abstract function serialize(): array;
+
+    public abstract function __toString(): string;
 
 
     public function getId(): int

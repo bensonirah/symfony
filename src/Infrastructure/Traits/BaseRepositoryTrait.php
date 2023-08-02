@@ -3,36 +3,42 @@
 namespace Arch\Infrastructure\Traits;
 
 use Arch\Domain\Entity\BaseEntity;
-use Doctrine\ORM\EntityManagerInterface;
+use Arch\Domain\Exception\DomainEntityException;
+use Arch\Domain\Exception\EntityNotFoundException;
 
 trait BaseRepositoryTrait
 {
-    protected EntityManagerInterface $entityManager;
     protected string $className;
+
     /**
-     * @param int $id
-     * @return BaseEntity
+     * @throws DomainEntityException
      */
     public function get(int $id): BaseEntity
     {
-        return $this->entityManager->find($this->className, $id);
+        if (!$entity = $this->_em->find($this->className, $id)) {
+            throw EntityNotFoundException::fromMessage(sprintf("Unable to find entity with ID: %s", $id));
+        }
+        return $entity;
     }
 
     public function add(BaseEntity $baseEntity)
     {
-        if ($baseEntity->getId() != null) {
-            $this->entityManager->flush();
+        if ($baseEntity->getId()) {
+            $this->_em->flush();
             return;
         }
-        $this->entityManager->persist($baseEntity);
-        $this->entityManager->flush();
+        $this->_em->persist($baseEntity);
+        $this->_em->flush();
     }
 
+    /**
+     * @param int $id
+     * @return void
+     * @throws DomainEntityException
+     */
     public function remove(int $id)
     {
-        dump($id);
-        /*$entityBase = $this->get($id);
-        $this->entityManager->remove($entityBase);
-        $this->entityManager->flush();*/
+        $oUser = $this->get($id);
+        $this->_em->remove($oUser);
     }
 }
