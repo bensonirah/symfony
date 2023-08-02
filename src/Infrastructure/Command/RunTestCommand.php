@@ -4,6 +4,9 @@ namespace Arch\Infrastructure\Command;
 
 use Arch\Application\CommandBus;
 use Arch\Application\MiddlewaresResolver;
+use Arch\Domain\Exception\DomainEntityException;
+use Arch\Domain\Exception\EntityNotFoundException;
+use Arch\Domain\Repository\UserRepositoryInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -14,14 +17,14 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class RunTestCommand extends Command
 {
-    protected static $defaultName = 'app:run-test';
+    protected static $defaultName = 'arch:run-test';
     protected static $defaultDescription = 'Run test command';
 
     /**
      * RunTestCommand constructor.
      * @param string|null $name
      */
-    public function __construct(string $name = null)
+    public function __construct( string $name = null)
     {
         parent::__construct(self::$defaultName);
     }
@@ -36,7 +39,6 @@ class RunTestCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        dump('hi there!');
         return Command::SUCCESS;
     }
 }

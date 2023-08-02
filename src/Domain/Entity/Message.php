@@ -22,14 +22,14 @@ final class Message extends BaseEntity
         $this->body = $body;
     }
 
-    public function toArray(): array
+    public function serialize(): array
     {
         return [
             'id' => $this->id,
             'body' => $this->body
         ];
     }
-    public function __toString()
+    public function __toString():string
     {
         return "uuid: {$this->id}, body: {$this->body}";
     }

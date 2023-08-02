@@ -8,7 +8,7 @@ doctrine:
     mappings:
       Arch:
         is_bundle: false
-        type: annotation
-        dir: '%kernel.project_dir%/src/Infrastructure/Entity'
+        type: yml
+        dir: '%kernel.project_dir%/config/doctrine/entity'
         prefix: 'Arch\Infrastructure\Entity'
         alias: Arch
