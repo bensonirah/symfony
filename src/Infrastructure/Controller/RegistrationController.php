@@ -2,7 +2,7 @@
 
 namespace Arch\Infrastructure\Controller;
 
-use Arch\Infrastructure\Entity\DoctrineUser;
+use Arch\Infrastructure\Entity\User;
 use Arch\Infrastructure\Form\RegistrationFormType;
 use Arch\Infrastructure\Repository\UserRepository;
 use Arch\Infrastructure\Security\ArchAuthenticator;
@@ -35,7 +35,7 @@ class RegistrationController extends AbstractController
         if ($this->getUser()){
             return $this->redirectToRoute('arch_home');
         }
-        $user = new DoctrineUser();
+        $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 

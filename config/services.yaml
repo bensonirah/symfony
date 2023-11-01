@@ -35,12 +35,12 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
     
-    Arch\Application\Handler\:
-        resource:   '../src/Application/Handler/*'
+    Arch\Application\Command\:
+        resource:   '../src/Application/Command/*/*Handler.php'
         tags: ['arch.command.handler']
     
-    Arch\Application\Events\Handler\:
-        resource:   '../src/Application/Events/Handler/*'
+    Arch\Application\Events\:
+        resource:   '../src/Application/Events/*/*EventHandler.php'
         tags:   ['arch.event.handler']
 
     arch.event.bus:
@@ -59,24 +59,24 @@ services:
             - !tagged_iterator arch.event.handler
 
     arch.app.middleware_resolver:
-        class: Arch\Application\MiddlewaresResolver
+        class: Arch\Application\Command\MiddlewaresResolver
         arguments:
             - '@service_container'
             - !tagged_iterator arch.command.middleware
 
     arch.http.middleware_resolver:
-        class:  Arch\Infrastructure\Middlewares\HttpMiddlewareResolver
+        class:  Arch\Infrastructure\Middlewares\Http\HttpMiddlewareResolver
         arguments:
             - '@service_container'
             - !tagged_iterator arch.http_request.middleware
 
     arch.exception.middleware_resolver:
-        class: Arch\Infrastructure\Middlewares\ExceptionMiddlewareResolver
+        class: Arch\Infrastructure\Middlewares\Exception\ExceptionMiddlewareResolver
         arguments:
             - '@service_container'
             - !tagged_iterator arch.exception_middleware
 
-    Arch\Application\CommandBus:
+    Arch\Application\Command\CommandBus:
         arguments:
             - '@arch.app.middleware_resolver'
             - '@logger'

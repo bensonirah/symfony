@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class SendMessageHandler The command handler for SendMessage command
- * @package Arch\Application\Handler
  */
 final class SendMessageHandler
 {

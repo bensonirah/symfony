@@ -2,8 +2,8 @@
 
 namespace Arch\Infrastructure\Repository;
 
-use Arch\Infrastructure\Entity\DoctrineUser;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Arch\Infrastructure\Entity\User;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -13,7 +13,7 @@ class UserRepository extends ServiceEntityRepository implements  PasswordUpgrade
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, DoctrineUser::class);
+        parent::__construct($registry, User::class);
     }
 
     /**
@@ -21,7 +21,7 @@ class UserRepository extends ServiceEntityRepository implements  PasswordUpgrade
      */
     public function upgradePassword(PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void
     {
-        if (!$user instanceof DoctrineUser) {
+        if (!$user instanceof User) {
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', \get_class($user)));
         }
 

@@ -4,7 +4,7 @@ namespace Arch\Application\Events\Message;
 
 use Psr\Log\LoggerInterface;
 
-final class SendEmailOnMessageSent
+final class SendEmailOnMessageSentEventHandler
 {
     private LoggerInterface $logger;
 

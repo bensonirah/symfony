@@ -30,7 +30,6 @@ class MediaController extends AbstractController
     public function index(Request $request): Response
     {
         if ($request->isMethod('POST')) {
-            dd($request->request->get(BucketPath::URL));
             return $this->redirectToRoute('upload_media');
         }
 
